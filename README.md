@@ -1,5 +1,11 @@
 # Spring Secure API Skeleton
 
+## Setting up for Development
+
+Note that you'll need to install redis before starting the server.
+
+## Example Requests
+
 ``` bash
 # 401 Unauthorized
 curl -i http://localhost:8080/
