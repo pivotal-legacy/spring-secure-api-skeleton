@@ -10,24 +10,24 @@ import org.springframework.security.web.savedrequest.NullRequestCache;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Override
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
-		http
-			.authorizeRequests()
-				.anyRequest().authenticated()
-				.and()
-			.requestCache()
-				.requestCache(new NullRequestCache())
-				.and()
-			.httpBasic();
+        http
+                .authorizeRequests()
+                .anyRequest().authenticated()
+                .and()
+                .requestCache()
+                .requestCache(new NullRequestCache())
+                .and()
+                .httpBasic();
 
-		http.csrf().disable();
-	}
+        http.csrf().disable();
+    }
 
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth
-			.inMemoryAuthentication()
-				.withUser("fancyuser").password("fancypassword").roles("FANCY_ROLE");
-	}
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+                .inMemoryAuthentication()
+                .withUser("fancyuser").password("fancypassword").roles("FANCY_ROLE");
+    }
 }
