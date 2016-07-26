@@ -11,12 +11,12 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 public class HelloController {
 
     @RequestMapping(value = "/", method = GET)
-    public String getMessage(Authentication authentication) {
+    public Message getMessage(Authentication authentication) {
         // Here's how you grab the current user.
         User currentUser = (User) authentication.getPrincipal();
 
         System.out.println("currentUser = " + currentUser);
 
-        return "hello";
+        return new Message("hello");
     }
 }
