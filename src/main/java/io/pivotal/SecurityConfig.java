@@ -20,6 +20,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.requestCache(new NullRequestCache())
 				.and()
 			.httpBasic();
+
+		http.csrf().disable();
 	}
 
 	@Autowired
